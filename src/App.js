@@ -1,25 +1,42 @@
-import logo from './logo.svg';
+import React, {Component} from 'react';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import axios from 'axios';
 import './App.css';
+import { Transactions } from './components/Transactions';
+import { Operations } from './components/Operations';
+import { Categories } from './components/Categories';
 
-function App() {
+class App extends Component{
+  constructor(){
+    super()
+    this.state = {
+      transactions : [],
+      balance : 10000
+    }
+  }
+   componentDidMount() {
+  axios.get('http://localhost:4000/transactions')
+  .then(res =>{
+     this.setState({transactions : res.data})
+  }).catch(function (error) {
+    console.log(error);
+  })
+}
+  render(){
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Router>
+      <div>
+      <Link className="link" to="/" >Home</Link>
+      <Link className="link" to="/operations" >Operations</Link>
+      <Link className="link" to="/categories" >Categories</Link>
+
+      <Route exact path="/operations" render={() => <Operations />}/>
+      <Route exact path="/" render={() => <Transactions transactions={this.state.transactions}/>}/>
+      <Route exact path="/categories" render={() => <Categories />}/>
+      </div>
+    </Router>
+  )
+  }
 }
 
 export default App;
