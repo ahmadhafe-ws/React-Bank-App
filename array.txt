@@ -1,0 +1,3 @@
+["Elasticsearch.Net", "NEST", "Newtonsoft.Json", "AntiVirusScanner", "Elasticsearch.Net", "System.Reflection.Emit", "System.Reflection.Primitives", "System.Runtime", "System.Reflection", "System.IO", "System.Text.Encoding", 
+"System.Threading.Tasks", "System.Reflection.Emit.ILGeneration", "System.Reflection.Emit.Lightweight", "System.Diagnostics.DiagnosticSource", "Newtonsoft.Json", "Route.Api", "Polly", "RestSharp", "Newtonsoft.Json",
+"Microsoft.NETCore.App", "Microsoft.NETCore.DotNetHostPolicy", "Microsoft.NETCore.DotNetHostResolver", "Microsoft.NETCore.DotNetAppHost",]
